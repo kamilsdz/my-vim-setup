@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+BUNDLE_PATH = "~/.vim/bundle"
+VIMRC_PATH = "~/.vimrc"
+BASH_PROFILE_PATH = "~/.bash_profile"
+ZSHRC_PATH = "~/.zshrc"
+GITIGNORE_PATH = "~/.gitignore_global"
+
+puts "Installing iTerm"
+system('brew cask install iterm2')
+
+puts "Installing Oh My Zsh"
+system('sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"')
+
+puts "Installing ZSH Touchbar plugin"
+system('cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins')
+system('git clone https://github.com/kamilsdz/zsh-iterm-touchbar.git')
+
+puts "Installing Pathogen"
+system("mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim")
+
+puts "Copying vim bundles"
+system("cp -rf bundle/ #{BUNDLE_PATH}"
+
+puts "Copying config files"
+system("cp .vimrc #{VIMRC_PATH}")
+system("cp .bash_profile #{BASH_PROFILE_PATH}")
+system("cp .zshrc #{ZSHRC_PATH}")
+
+puts "Installing 3rd party vim plugins"
+system("brew install ack")
+
+puts "Setting vim global-ignore"
+system("cp .gitignore_global #{GITIGNORE_PATH}")
+system("git config --global core.excludesfile #{GITIGNORE_PATH}")
