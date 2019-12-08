@@ -12,6 +12,15 @@ system('brew cask install iterm2')
 puts "Installing Oh My Zsh"
 system('sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"')
 
+puts "Copying config files"
+system("cp .vimrc #{VIMRC_PATH}")
+system("cp .bash_profile #{BASH_PROFILE_PATH}")
+system("cp .zshrc #{ZSHRC_PATH}")
+
+puts "Setting vim global-ignore"
+system("cp .gitignore_global #{GITIGNORE_PATH}")
+system("git config --global core.excludesfile #{GITIGNORE_PATH}")
+
 puts "Installing ZSH Touchbar plugin"
 system('cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins')
 system('git clone https://github.com/kamilsdz/zsh-iterm-touchbar.git')
@@ -19,17 +28,27 @@ system('git clone https://github.com/kamilsdz/zsh-iterm-touchbar.git')
 puts "Installing Pathogen"
 system("mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim")
 
-puts "Copying vim bundles"
-system("cp -rf bundle/ #{BUNDLE_PATH}"
-
-puts "Copying config files"
-system("cp .vimrc #{VIMRC_PATH}")
-system("cp .bash_profile #{BASH_PROFILE_PATH}")
-system("cp .zshrc #{ZSHRC_PATH}")
+puts "Cloning vim plugins"
+system("cd ~/.vim/bundle")
+system("git clone https://github.com/mileszs/ack.vim")
+system("git clone https://github.com/wincent/command-t")
+system("git clone https://github.com/ekalinin/dockerfile.vim")
+system("git clone https://github.com/morhetz/gruvbox")
+system("git clone https://github.com/scrooloose/nerdtree")
+system("git clone https://github.com/andrewradev/splitjoin.vim")
+system("git clone https://github.com/mbbill/undotree")
+system("git clone https://github.com/djoshea/vim-autoread")
+system("git clone https://github.com/ntpeters/vim-better-whitespace")
+system("git clone https://github.com/misterbuckley/vim-definitive")
+system("git clone https://github.com/tpope/vim-fugitive")
+system("git clone https://github.com/airblade/vim-gitgutter")
+system("git clone https://github.com/pangloss/vim-javascript")
+system("git clone https://github.com/terryma/vim-multiple-cursors")
+system("git clone https://github.com/tpope/vim-rails")
+system("git clone https://github.com/ecomba/vim-ruby-refactoring")
+system("git clone https://github.com/vim-ruby/vim-ruby")
+system("git clone https://github.com/tpope/vim-surround")
+system("git clone https://github.com/thaerkh/vim-workspace")
 
 puts "Installing 3rd party vim plugins"
 system("brew install ack")
-
-puts "Setting vim global-ignore"
-system("cp .gitignore_global #{GITIGNORE_PATH}")
-system("git config --global core.excludesfile #{GITIGNORE_PATH}")
