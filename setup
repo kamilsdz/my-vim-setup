@@ -1,15 +1,14 @@
 #!/bin/bash
 
+echo "Installing brew"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 echo "Installing iTerm"
 brew cask install iterm2
 
-echo "Installing Oh My Zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 echo "Copying config files"
-cp .vimrc ~/.vim/bundle
+cp .vimrc ~/.vimrc
 cp .bash_profile ~/.bash_profile
-cp .zshrc ~/.zshrc
 
 echo "Setting vim global-ignore"
 cp .gitignore_global ~/.gitignore_global
@@ -46,3 +45,7 @@ git clone https://github.com/thaerkh/vim-workspace
 
 echo "Installing 3rd party vim plugins"
 brew install ack
+
+echo "Installing Oh My Zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cp .zshrc ~/.zshrc
