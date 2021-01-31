@@ -9,6 +9,7 @@ brew cask install iterm2
 echo "Copying config files"
 cp .vimrc ~/.vimrc
 cp .bash_profile ~/.bash_profile
+cp .ackrc ~/.ackrc
 
 echo "Setting vim global-ignore"
 cp .gitignore_global ~/.gitignore_global

@@ -1,5 +1,13 @@
 " http://www.guckes.net/vim/setup.html
 " https://github.com/shumphrey/vimrc/blob/master/vimrc
+
+"ensure vim always runs from a shell
+set shell=/bin/sh
+
+"more smooth rendering
+set timeoutlen=1000
+set ttimeoutlen=0
+
 set nocompatible
 call pathogen#infect()
 call pathogen#helptags()
@@ -12,9 +20,16 @@ nnoremap <leader>2 :vertical resize -10<cr>
 nnoremap <leader>3 :resize +10<cr>
 nnoremap <leader>4 :resize -10<cr>
 
+
+" OS clipboard support
+set clipboard=unnamed
+
 " switching windows
 map ; <C-W>k
 map ' <C-W>w
+
+" ruler
+set ruler
 
 " fix backspace
 set bs=2
@@ -24,6 +39,12 @@ set history=100
 set incsearch
 set ignorecase smartcase
 
+" Command-T:
+let g:CommandTMaxFiles=200000
+let g:CommandTWildIgnore=&wildignore . ",*/node_modules,*/tmp"
+let g:CommandTAcceptSelectionMap = '<CR>'
+let g:CommandTAcceptSelectionTabMap = '<C-t>'
+
 " Vim-ruby config:
 let ruby_operators = 1
 let ruby_spellcheck_strings = 1
@@ -32,7 +53,9 @@ filetype plugin indent on
 syntax on
 runtime! config/**/*.vim
 
-imap <S-CR> <CR><CR>end<Esc>-cc  " iTerm2 fix: preferences → profile → keys → add more key + → press Shift Enter in field Keyboard Shortcut → Action: Send Text with “vim” Special Char → Copy \n\nend\x1B-cc
+" adding 'end' for ruby methods with shift+enter
+" iTerm2 fix: preferences → profile → keys → add more key + → press Shift Enter in field Keyboard Shortcut → Action: Send Text with “vim” Special Char → Copy \n\nend\x1B-cc
+imap <S-CR> <CR><CR>end<Esc>-cc
 
 " Nerd-tree config:
 autocmd vimenter * NERDTree
@@ -47,6 +70,7 @@ colorscheme gruvbox
 
 " Find definition config:
 nnoremap <Leader>d :FindDefinition<CR>
+nnoremap <Leader>D :SFindDefinition<CR>
 
 " UndoTree config
 nnoremap <Leader>h :UndotreeToggle<CR>

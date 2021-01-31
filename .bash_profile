@@ -1,8 +1,5 @@
 PATH=/usr/local/bin:$PATH
 PATH=$HOME/bin:$PATH
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/work/go
-export PATH="$PATH:$GOPATH/bin"
 
 export TERM=xterm-256color
 export CLICOLOR=1
