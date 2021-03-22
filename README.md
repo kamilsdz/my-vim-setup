@@ -1,6 +1,8 @@
 Script that will setup my favourite vim config:
 `./setup`
 
+
+[DEPRECATED] (Now the FZF does magic):
 ## Compiling VIM with specific Ruby version
 In MacOS Catalina VIM is compiled with Ruby 2.6.3. You can compile and install VIM again with Ruby 1.9.3 that works with Command-T:
 

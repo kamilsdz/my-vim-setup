@@ -6,6 +6,13 @@ echo "Installing brew"
 echo "Installing iTerm"
 brew cask install iterm2
 
+echo "Installing FZF with dependencies"
+brew install fzf
+$(brew --prefix)/opt/fzf/install
+brew install bat
+brew install the_silver_searcher
+
+
 echo "Copying config files"
 cp .vimrc ~/.vimrc
 cp .bash_profile ~/.bash_profile
@@ -43,6 +50,8 @@ git clone https://github.com/ecomba/vim-ruby-refactoring
 git clone https://github.com/vim-ruby/vim-ruby
 git clone https://github.com/tpope/vim-surround
 git clone https://github.com/thaerkh/vim-workspace
+git clone https://github.com/junegunn/fzf.vim
+git clone https://github.com/junegunn/fzf
 
 echo "Installing 3rd party vim plugins"
 brew install ack
