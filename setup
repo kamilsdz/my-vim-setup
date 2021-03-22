@@ -12,7 +12,6 @@ $(brew --prefix)/opt/fzf/install
 brew install bat
 brew install the_silver_searcher
 
-
 echo "Copying config files"
 cp .vimrc ~/.vimrc
 cp .bash_profile ~/.bash_profile

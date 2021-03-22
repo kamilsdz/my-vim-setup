@@ -20,6 +20,8 @@ nnoremap <leader>2 :vertical resize -10<cr>
 nnoremap <leader>3 :resize +10<cr>
 nnoremap <leader>4 :resize -10<cr>
 
+" open file from Quickfix List without closing it
+autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 
 " OS clipboard support
 set clipboard=unnamed
