@@ -41,11 +41,8 @@ set history=100
 set incsearch
 set ignorecase smartcase
 
-" Command-T:
-let g:CommandTMaxFiles=200000
-let g:CommandTWildIgnore=&wildignore . ",*/node_modules,*/tmp"
-let g:CommandTAcceptSelectionMap = '<CR>'
-let g:CommandTAcceptSelectionTabMap = '<C-t>'
+" :Files key binding
+nnoremap <Leader>t :Files<CR>
 
 " Vim-ruby config:
 let ruby_operators = 1

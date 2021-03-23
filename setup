@@ -31,7 +31,6 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vi
 echo "Cloning vim plugins"
 cd ~/.vim/bundle
 git clone https://github.com/mileszs/ack.vim
-git clone https://github.com/wincent/command-t
 git clone https://github.com/ekalinin/dockerfile.vim
 git clone https://github.com/morhetz/gruvbox
 git clone https://github.com/scrooloose/nerdtree
