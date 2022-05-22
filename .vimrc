@@ -2,11 +2,14 @@
 " https://github.com/shumphrey/vimrc/blob/master/vimrc
 
 "ensure vim always runs from a shell
+"set shell=rvm-shell
 set shell=/bin/sh
 
 "more smooth rendering
 set timeoutlen=1000
 set ttimeoutlen=0
+
+set ttyfast
 
 set nocompatible
 call pathogen#infect()
@@ -19,9 +22,6 @@ nnoremap <leader>1 :vertical resize +10<cr>
 nnoremap <leader>2 :vertical resize -10<cr>
 nnoremap <leader>3 :resize +10<cr>
 nnoremap <leader>4 :resize -10<cr>
-
-" open file from Quickfix List without closing it
-autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 
 " OS clipboard support
 set clipboard=unnamed
@@ -41,8 +41,11 @@ set history=100
 set incsearch
 set ignorecase smartcase
 
+"open file from Quickfix List without closing it
+autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
+
 " :Files key binding
-nnoremap <Leader>t :Files<CR>
+nnoremap <Leader>t :GFiles<CR>
 
 " Vim-ruby config:
 let ruby_operators = 1
@@ -85,3 +88,4 @@ let g:workspace_autosave_untrailspaces = 1
 
 " JS
 let g:javascript_plugin_jsdoc = 1
+
