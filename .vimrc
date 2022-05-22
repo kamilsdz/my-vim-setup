@@ -44,6 +44,9 @@ set ignorecase smartcase
 "open file from Quickfix List without closing it
 autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 
+" Quickfix List
+set switchbuf+=split
+
 " :Files key binding
 nnoremap <Leader>t :GFiles<CR>
 
